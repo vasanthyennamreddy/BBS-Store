@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<%- include('./partials/head.ejs') %>
+
+	<body>
+		<%- include('./partials/nav.ejs') %>
+		<% var products = [
+			{"name" : "as","id" :"123","price" : "234","imageURL" : "abc"},
+			{"name" : "as","id" :"123","price" : "234","imageURL" : "abc"},
+			{"name" : "as","id" :"123","price" : "234","imageURL" : "abc"},
+		] %>
+			
+			
+			
+			
+			
+			
+			
+			
+	<div class="container">
+	<div class="row">
+	<% products.forEach( product => { %>
+		
+		<div class="col-lg-4">
+			<img class="thumbnail" src="/images/placeholder.png" alt = "image here">
+			<div class="box-element product">
+				<h6><strong> <%= product.name%> </strong></h6>
+				<hr>
+
+				<button data-product="<%= product.id %>" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button> 
+				
+				<a class="btn btn-outline-success" href="">View</a>
+				<h4 style="display: inline-block;float: right;"><strong>Rs.<%= product.price %></strong></h4>
+
+			</div>
+		</div>
+		<% }) %>
+	</div>
+	</div>
+	<%- include('./partials/footer.ejs') %>
+	</body>
+</html>
