@@ -5,9 +5,13 @@ const app = express();
 
 // *************** Routes ***************** //
 
-app.get("/store",(req,res) =>{ return  res.render('store',{"title" : "Home"})});
-app.get("/checkout",(req,res) =>{ return  res.render('checkout',{"title" : "Checkout"})});
-app.get("/cart",(req,res) =>{ return  res.render('cart',{"title" : "Cart"})});
+const store = require('./routes/store');
+const cart = require('./routes/cart');
+const checkout = require('./routes/checkout');
+
+app.use("",store);
+app.use("/checkout",checkout);
+app.use("/cart",cart);
 
 
 
