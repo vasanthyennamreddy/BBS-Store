@@ -29,12 +29,12 @@ app.set('view engine','ejs');
 
 // ****************** Database ******************//
 
-const dbcon = require('./middleware/database');
+/*const dbcon = require('./middleware/database');
 
 dbcon.execute('SELECT  * FROM user_details')
 .then(result => { console.log(result[0]);})
 .catch(err => {console.log(result);});
-
+*/
 
 
 const port = process.env.PORT || 3000 ;
