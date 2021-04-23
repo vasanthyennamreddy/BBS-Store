@@ -1,0 +1,68 @@
+<html>
+    <%- include('./partials/head.ejs') %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="container my-2">
+
+          <div class="jumbotron">
+            <div>
+              <h1>Logo Goes here</h1>
+            </div>
+            <div>
+              <h1 class="display-4 my-2" style="text-align: center;">Create Account</h1>
+            </div>
+            <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputFirst_name">First Name</label>
+                    <input type="text" class="form-control" id="inputFirst_name" placeholder="First Name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputLast_name">Last Name</label>
+                    <input type="text" class="form-control" id="inputLast_name" placeholder="Last Name">
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputUsername">Username</label>
+                      <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputPhno">mobile Number</label>
+                      <input type="number" class="form-control" id="inputPhno" placeholder="Mobile Number">
+                    </div>
+                    
+                  </div>
+
+                
+                
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Confirm Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Confirm Password">
+                  </div>
+                  
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                  <label class="form-check-label" for="defaultCheck2">
+                    Admin
+                  </label>
+                </div>
+                <div style="text-align: center;">
+                  <button type="submit" class="btn btn-info mx-auto" >Create Your <span>BBS-Store</span> Account</button>
+                </div>
+                
+              </form>
+
+            </div>
+        </div>
+    </body>
+</html>

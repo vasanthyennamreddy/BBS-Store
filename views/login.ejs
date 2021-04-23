@@ -1,0 +1,47 @@
+<html>
+    <%- include('./partials/head.ejs') %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="container my-2">
+
+          <div class="jumbotron">
+            <div>
+              <h1>Logo Goes here</h1>
+            </div>
+            <div>
+              <h1 class="display-4 my-2" style="text-align: center;">Login</h1>
+            </div>
+            <form>
+                
+                  
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputUsername">Username</label>
+                      <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                      </div>
+                    
+                  </div>
+
+                
+                <div style="text-align: center;">
+                  <button type="submit" class="btn btn-info mx-auto" >Login to Your <span>BBS-Store</span> Account</button>
+                </div>
+
+
+                
+              </form>
+              <div style="text-align: center;">
+                <a href="/register"><button class="btn btn-info mx-auto">New to BBS-Store? Create New Account</button></a>
+            </div>
+              
+
+            </div>
+        </div>
+    </body>
+</html>
