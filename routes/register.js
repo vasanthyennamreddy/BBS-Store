@@ -8,7 +8,7 @@ router.get('',(req,res)=>{
 });
 
 router.post('',(req,res)=>{
-  console.log(req.body);
+  
   const name = req.body.fname;
   const username = req.body.Username;
   const mob_no = req.body.Phno;
@@ -26,7 +26,7 @@ router.post('',(req,res)=>{
         const user = new User(name,username,email,mob_no,pass);
         return user.save()
         .then(result => {
-          res.redirect('/login');
+          res.redirect('login');
         });
     })
     .catch(err => {
