@@ -29,11 +29,14 @@ app.set('view engine','ejs');
 
 // ****************** Database ******************//
 
-/*const dbcon = require('./middleware/database');
+/*
+const User = require('./models/user'); 
 
-dbcon.execute('SELECT  * FROM user_details')
-.then(result => { console.log(result[0]);})
-.catch(err => {console.log(result);});
+const new_user = new User('Saaketh I','Saaketh','is15@iitbbs.ac.in','8142713624','sak@123','y');
+new_user.save()
+.then(res => { console.log(res);})
+.catch(err => { console.log(err);});
+
 */
 
 
