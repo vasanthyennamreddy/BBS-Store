@@ -7,8 +7,25 @@ router.get('',(req,res)=>{
 
 });
 
-router.post('',(req,res) => {
+router.post('',(req,res,next) => {
 
+        const username = req.body.username;
+        const password = req.body.password;
+
+        User.findByUsername(username)
+        .then(result => {
+                if (result[0][0].username == username && result[0][0].pass == password){
+                        console.log("i am in ");
+                        req.session.isLoggeIn = true;
+                        req.session.user  = username;
+                        return res.redirect('/');
+                }
+                return res.redirect('/login');
+        })
+        .catch( err => {
+                console.log(err);
+                return res.redirect('/login');
+        });
         
 
 

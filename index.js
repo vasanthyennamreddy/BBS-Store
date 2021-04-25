@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-
+const session = require('express-session');
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // *************** Routes ***************** //
@@ -26,19 +26,21 @@ app.use("/addproduct", addProduct);
 app.use(express.json());
 app.use(express.static('static'));
 app.set('view engine','ejs');
-
+app.use( session({secret:'mysecret',resave:false,saveUninitialized:false}) );
 
 // ****************** Database ******************//
 
-/*
-const User = require('./models/user'); 
 
-const new_user = new User('Saaketh I','Saaketh','is15@iitbbs.ac.in','8142713624','sak@123','y');
-new_user.save()
-.then(res => { console.log(res);})
-.catch(err => { console.log(err);});
+/*const User = require('./models/user'); 
 
-*/
+//const new_user = new User('Saaketh I','Saaketh','is15@iitbbs.ac.in','8142713624','sak@123','y');
+User.findByUsername('Vasanth')
+.then(res => { console.log(res[0][0].username);
+                console.log(res[0][0].pass);        
+    })
+.catch(err => { console.log(err);});  */ 
+
+
 
 
 const port = process.env.PORT || 3000 ;
