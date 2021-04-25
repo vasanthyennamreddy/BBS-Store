@@ -4,14 +4,7 @@
 
 	<body>
 		<%- include('./partials/nav.ejs') %>
-		<% var products = [
-			{"name" : "as","id" :"123","price" : "234","imageURL" : "abc"},
-			{"name" : "as","id" :"123","price" : "234","imageURL" : "abc"},
-			{"name" : "as","id" :"123","price" : "234","imageURL" : "abc"},
-			{"name" : "as","id" :"123","price" : "234","imageURL" : "abc"},
-			{"name" : "as","id" :"123","price" : "234","imageURL" : "abc"},
-			{"name" : "as","id" :"123","price" : "234","imageURL" : "abc"},
-		] %>
+		
 			
 			
 			
@@ -22,10 +15,10 @@
 			
 	<div class="container">
 	<div class="row">
-	<% products.forEach( product => { %>
+	<% for (let product of products){ %>
 		
 		<div class="col-lg-4">
-			<img class="thumbnail" src="/images/placeholder.png" alt = "image here">
+			<img class="thumbnail" style="image-orientation: inherit;" src="<%=product.image_url%>" alt = "image here">
 			<div class="box-element product">
 				<h6><strong> <%= product.name%> </strong></h6>
 				<hr>
@@ -37,7 +30,7 @@
 
 			</div>
 		</div>
-		<% }) %>
+		<% } %>
 	</div>
 	</div>
 	<%- include('./partials/footer.ejs') %>

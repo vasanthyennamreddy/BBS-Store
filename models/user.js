@@ -20,7 +20,7 @@ module.exports = class User {
   }
 
   static deleteById(id) {
-    return db.execute('DELETE FROM user_details WHERE user_id = ? ',id);
+    return db.execute('DELETE FROM user_details WHERE user_id = ? ',[id]);
   }
 
   static fetchAll() {
@@ -28,11 +28,11 @@ module.exports = class User {
   }
 
   static findByEmail(email) {
-    return db.execute('SELECT * FROM user_details WHERE mail_id = ? ', email);
+    return db.execute('SELECT * FROM user_details WHERE mail_id = ? ', [email]);
   }
 
   static findByUsername(userName) {
-    return db.execute('SELECT username,pass FROM user_details WHERE username = ? ',userName);
+    return db.execute('SELECT username,pass FROM user_details WHERE username = ? ',[userName]);
   }
 
   
