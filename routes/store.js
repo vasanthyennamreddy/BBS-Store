@@ -7,11 +7,12 @@ router.get('',(req,res)=>{
         Product.fetchAll()
         .then(result => {
                 const products = result[0];
-               const extra = result[1];
+                const extra = result[1];
                 console.log(products);
                 res.render('store',{
                         title:"Home",
-                        products : products
+                        products : products,
+                        sess : req.session
                         });
         })
         .catch(err => {

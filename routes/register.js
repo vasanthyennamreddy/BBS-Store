@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 
 router.get('',(req,res)=>{
-        res.render('register',{"title":"register"});
+        res.render('register',{title:"register",sess : req.session});
 
 });
 

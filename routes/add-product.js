@@ -3,7 +3,7 @@ const router = express.Router();
  
 
 router.get('',(req,res)=>{
-        res.render('add-product',{"title":"Cart"});
+        res.render('add-product',{title:"Add Product",sess : req.session});
 
 });
 

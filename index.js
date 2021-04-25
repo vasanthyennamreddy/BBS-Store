@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const session = require('express-session');
 app.use(bodyParser.urlencoded({ extended: false }));
-
+var session = require('express-session');
+app.use( session({secret:'mysecret',resave:false,saveUninitialized:false}) );
 // *************** Routes ***************** //
 
 const store = require('./routes/store');
@@ -12,6 +12,7 @@ const checkout = require('./routes/checkout');
 const register = require('./routes/register');
 const login = require('./routes/login');
 const addProduct = require('./routes/add-product');
+const logout = require('./routes/logout');
 
 app.use("",store);
 app.use("/checkout",checkout);
@@ -19,6 +20,7 @@ app.use("/cart",cart);
 app.use("/register", register);
 app.use("/login", login);
 app.use("/addproduct", addProduct);
+app.use("/logout",logout);
 
 
 // *************** Middleware & StaticFiles *********************//
@@ -26,7 +28,7 @@ app.use("/addproduct", addProduct);
 app.use(express.json());
 app.use(express.static('static'));
 app.set('view engine','ejs');
-app.use( session({secret:'mysecret',resave:false,saveUninitialized:false}) );
+
 
 // ****************** Database ******************//
 
@@ -46,5 +48,4 @@ User.findByUsername('Vasanth')
 const port = process.env.PORT || 3000 ;
 app.listen(port);
 console.log(`listening on port ${port} `);
-
 

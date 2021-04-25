@@ -32,7 +32,7 @@ module.exports = class User {
   }
 
   static findByUsername(userName) {
-    return db.execute('SELECT username,pass FROM user_details WHERE username = ? ',[userName]);
+    return db.execute('SELECT username,pass,admin FROM user_details WHERE username = ? ',[userName]);
   }
 
   
