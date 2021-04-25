@@ -10,20 +10,20 @@
             <div>
                 <h1 class="display-4 my-2" style="text-align: center;">Add Product</h1>
               </div>
-            <form action="/" method="POST">
+            <form action="/addproduct" method="POST">
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputpname">Product Name</label>
-                    <input type="text" class="form-control" id="inputpame" placeholder="Product Name">
+                    <input type="text" class="form-control" name="productName" id="inputpame" placeholder="Product Name">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPrice">Price</label>
-                    <input type="number" class="form-control" id="inputPrice" placeholder="Price">
+                    <input type="number" class="form-control" name="Price" id="inputPrice" placeholder="Price">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputDescrip">Description</label>
-                  <input type="text" class="form-control" id="inputDescrip" placeholder="This Procust is">
+                  <input type="text" class="form-control" name="Descp" id="inputDescrip" placeholder="This Procust is">
                 </div>
 <!--
                 <div>
@@ -34,27 +34,25 @@
                 </div>
 -->
 
-
+                <div class="form-group">
+                  <label for="inputimageUrl">Image Url</label>
+                  <input type="text" class="form-control" name="imageUrl" id="inputimageUrl" placeholder="Image Url">
+                </div>      
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                       <label class="mr-sm-2" for="inlineFormCustomSelect">Categories</label>
-                      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                      <select class="custom-select mr-sm-2" name = "Category" id="inlineFormCustomSelect">
                         <option selected>Category</option>
-                        <option value="1">Shoes</option>
-                        <option value="2">T-shirt</option>
-                        <option value="3">Other</option>
+                        <option value="Cycles">Cycles</option>
+                        <option value="Books">Books</option>
+                        <option value="Electricals">Electricals</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Essentials">Essentials</option>
                       </select>
                     </div>
                 </div>
-                <div class="form-group">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                      Check me out
-                    </label>
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                
+                <button type="submit" class="btn btn-primary">Add Product</button>
               </form>
             </div>
         </div>

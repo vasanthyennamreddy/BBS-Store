@@ -3,12 +3,12 @@ const router = express.Router();
 const Product = require('../models/product');
 
 router.get('',(req,res)=>{
-       
+        console.log(req.session.userid);
+        
         Product.fetchAll()
         .then(result => {
                 const products = result[0];
                 const extra = result[1];
-                console.log(products);
                 res.render('store',{
                         title:"Home",
                         products : products,

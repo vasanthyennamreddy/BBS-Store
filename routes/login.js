@@ -18,7 +18,8 @@ router.post('',(req,res,next) => {
                         req.session.isLoggedIn = true;
                         req.session.user  = username;
                         req.session.admin = result[0][0].admin;
-                       
+                        req.session.userid = result[0][0].user_id
+                        console.log(req.session.userid);
                         return res.redirect('/');
                 }
                 return res.redirect('/login');
