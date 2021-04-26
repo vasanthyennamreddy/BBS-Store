@@ -2,7 +2,7 @@ const db = require('../middleware/database');
 
 
 module.exports = class Order {
-  constructor( userid, pid, quan, buy, tot) {
+  constructor( userid, pid, quan, buy = 'y', tot) {
     
     
     this.user_id = userid;
@@ -14,7 +14,7 @@ module.exports = class Order {
 
   save() {
     return db.execute(
-      'INSERT INTO orders (user_id, , p_id, quantity, buy, total) VALUES (?, ?, ?, ?, ?)',
+      'INSERT INTO orders (user_id, , p_id, quantity, Buy, total) VALUES (?, ?, ?, ?, ?)',
       [this.user_id, this.p_id,this.quantity, this.buy , this.total ]
     );
   }

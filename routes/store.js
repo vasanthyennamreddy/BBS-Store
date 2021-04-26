@@ -3,7 +3,6 @@ const router = express.Router();
 const Product = require('../models/product');
 
 router.get('',(req,res)=>{
-        console.log(req.session.userid);
         
         Product.fetchAll()
         .then(result => {
@@ -23,23 +22,23 @@ router.get('',(req,res)=>{
         
 
 });
-/*
+
 router.get('/:p_id',(req,res)=>{
         const prodId = req.params.p_id;
         Product.findById(prodId)
         .then(result => {
-                const product = result[0];
-               const extra = result[1];
-                console.log(product);
-                res.render('view',{
+                const products = result[0];
+                const extra = result[1];
+                res.render('product',{
                         title:"View Product",
-                        product : product
+                        products : products,
+                        sess : req.session
                         });
                 })
         .catch(err => {
                         console.log(err);
                 })
         
-})*/
+})
 
 module.exports = router;

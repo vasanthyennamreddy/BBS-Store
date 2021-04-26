@@ -9,6 +9,11 @@ router.get('',(req,res)=>{
 });
 
 router.post('',(req,res)=>{
+
+        /*if(!req.session.isLoggedIn){
+                res.redirect("/login")
+         }*/
+        
          const productName = req.body.productName;
          const price = req.body.Price;
          const description = req.body.Descp;
@@ -17,7 +22,6 @@ router.post('',(req,res)=>{
          const seller_id = req.session.userid
 
          const product = new Product(productName, imageUrl, description, Category, seller_id, price);
-         
          product.save()
          .then(result => {
                  console.log("Success");

@@ -14,13 +14,14 @@ const login = require('./routes/login');
 const addProduct = require('./routes/add-product');
 const logout = require('./routes/logout');
 
-app.use("",store);
+
 app.use("/checkout",checkout);
 app.use("/cart",cart);
 app.use("/register", register);
 app.use("/login", login);
 app.use("/addproduct", addProduct);
 app.use("/logout",logout);
+app.use("",store);
 
 
 // *************** Middleware & StaticFiles *********************//

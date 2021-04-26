@@ -14,12 +14,12 @@ router.post('',(req,res,next) => {
         User.findByUsername(username)
         .then(result => {
                 if (result[0][0].username == username && result[0][0].pass == password){
-                        console.log("i am in ");
+                        
                         req.session.isLoggedIn = true;
                         req.session.user  = username;
                         req.session.admin = result[0][0].admin;
                         req.session.userid = result[0][0].user_id
-                        console.log(req.session.userid);
+                        
                         return res.redirect('/');
                 }
                 return res.redirect('/login');
