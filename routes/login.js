@@ -16,9 +16,13 @@ router.post('',(req,res,next) => {
                 if (result[0][0].username == username && result[0][0].pass == password){
                         
                         req.session.isLoggedIn = true;
+                        req.session.userid = result[0][0].user_id;
                         req.session.user  = username;
+                        req.session.name  = result[0][0].name;
+                        req.session.email = result[0][0].mail_id;
+                        req.session.phn = result[0][0].mob_no;
                         req.session.admin = result[0][0].admin;
-                        req.session.userid = result[0][0].user_id
+                        
                         
                         return res.redirect('/');
                 }
