@@ -13,7 +13,7 @@ const register = require('./routes/register');
 const login = require('./routes/login');
 const addProduct = require('./routes/add-product');
 const logout = require('./routes/logout');
-
+const profile = require('./routes/profile');
 
 app.use("/checkout",checkout);
 app.use("/cart",cart);
@@ -21,7 +21,9 @@ app.use("/register", register);
 app.use("/login", login);
 app.use("/addproduct", addProduct);
 app.use("/logout",logout);
+app.use("/profile",profile);
 app.use("",store);
+
 
 
 // *************** Middleware & StaticFiles *********************//

@@ -1,0 +1,33 @@
+<html>
+    <%- include('./partials/head.ejs') %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="container my-2">
+
+          <div class="jumbotron">
+            <div>
+              <h2>Profile</h2>
+            </div>
+
+            <div>
+                <h4>Name : <%= sess.name %> </h4>
+            </div>
+            
+            <div>
+                <h4>UserName : <%= sess.user %> </h4>
+            </div>
+
+            <div>
+                <h4>Email : <%= sess.email %> </h4>
+            </div>
+
+            <div>
+                <h4>Phone  : <%= sess.phn %> </h4>
+            </div>
+            
+            </div>
+        </div>
+    </body>
+</html>
