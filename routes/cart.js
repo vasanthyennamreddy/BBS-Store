@@ -31,14 +31,24 @@ router.post('',(req,res)=>{
                 if(result[0].length == 0){
                         Product.getPrice(p_id)
                         .then(result => {
-                               
-                               price = result[0][0].price;
-                               const total = price*quantity;
-                               const cart = new Cart(user_id,p_id,quantity,total,Buy);
-                                return cart.save()
+
+                                Product.getQuantity(p_id)
                                 .then(result => {
-                                        res.redirect('cart');
-                                }); 
+                                        if(result[0][0].quant< quantity){
+                                                return res.redirect('/'+p_id)
+                                        }
+                                        else{
+                                                price = result[0][0].price;
+                                                const total = price*quantity;
+                                                const cart = new Cart(user_id,p_id,quantity,total,Buy);
+                                                        return cart.save()
+                                                        .then(result => {
+                                                                res.redirect('cart');
+                                                        }); 
+                                        }
+                                })
+                               
+                               
                                   
                               })
                 }
