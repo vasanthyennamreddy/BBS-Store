@@ -27,7 +27,6 @@ router.post('',(req,res)=>{
         var price;
         Cart.checkExisting(user_id, p_id)
         .then(result => {
-                console.log(result[0]);
                 if(result[0].length == 0){
                         Product.getPrice(p_id)
                         .then(result => {

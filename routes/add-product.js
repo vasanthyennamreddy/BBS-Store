@@ -24,7 +24,6 @@ router.post('',(req,res)=>{
          const product = new Product(productName, imageUrl, description, Category, seller_id, price);
          product.save()
          .then(result => {
-                 console.log("Success");
                  res.redirect("/");
          })
       })
