@@ -5,6 +5,8 @@ const Product = require('../models/product');
 
 router.get('',(req,res)=>{
 
+        if(req.session.isLoggedIn){
+
         const user_id = req.session.userid;
         Cart.fetchCart(user_id)
         .then(result => {
@@ -15,6 +17,10 @@ router.get('',(req,res)=>{
                         carts : Carts
                 });
         })
+        }
+        else{
+                res.redirect('login');
+        }
         
 
 });
