@@ -64,15 +64,21 @@ router.post('',(req,res)=>{
                       
                         Product.getPrice(p_id)
                         .then(result => {
+                                if(result[0][0].quant< quantity){
+                                        return res.redirect('/'+p_id)
+                                }
+                                else{
+                                        price = result[0][0].price;
+                                        const total = price*quantity;
+                                        console.log(price);
+                                        console.log(total);
+                                        Cart.cartUpdate(user_id, p_id, quantity, total)
+                                        .then(result => {
+                                                res.redirect('cart');
+                                        });
+                                }
                                
-                               price = result[0][0].price;
-                               const total = price*quantity;
-                               console.log(price);
-                               console.log(total);
-                               Cart.cartUpdate(user_id, p_id, quantity, total)
-                               .then(result => {
-                                       res.redirect('cart');
-                               });
+                              
                                   
                               })
                         
