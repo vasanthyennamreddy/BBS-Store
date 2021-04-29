@@ -36,14 +36,14 @@ router.post('',(req,res)=>{
                 if(result[0].length == 0){
                         Product.getPrice(p_id)
                         .then(result => {
-
+                                price = result[0][0].price;
                                 Product.getQuantity(p_id)
                                 .then(result => {
                                         if(result[0][0].quant< quantity){
                                                 return res.redirect('/'+p_id)
                                         }
                                         else{
-                                                price = result[0][0].price;
+                                                
                                                 const total = price*quantity;
                                                 const cart = new Cart(user_id,p_id,quantity,total,Buy);
                                                         return cart.save()
@@ -60,15 +60,21 @@ router.post('',(req,res)=>{
                 else{
                         quantity = quantity + result[0][0].quantity;
                         console.log(quantity);
-                        console.log(price);
-                      
                         Product.getPrice(p_id)
                         .then(result => {
+                                price = result[0][0].price;
+                        })
+                        console.log(price);
+                      
+                        Product.getQuantity(p_id)
+                        .then(result => {
+                                console.log(result[0][0].quant);
                                 if(result[0][0].quant< quantity){
+                                        quantity = quantity - (req.body.quantity*1)
                                         return res.redirect('/'+p_id)
                                 }
                                 else{
-                                        price = result[0][0].price;
+                                       
                                         const total = price*quantity;
                                         console.log(price);
                                         console.log(total);
