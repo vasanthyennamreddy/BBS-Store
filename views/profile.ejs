@@ -54,6 +54,100 @@
                 <% } %>
             </div>
             </div>
+
+            <div class="container jumbotron">
+                <div class="row"> <h2><u>Prvious Orders </u></h2> </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="box-element">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                  </tr>
+                                </thead>
+                                
+                            
+                            <% for (let order of orders){ %>
+                                <tbody>
+                                    <tr>
+                                      <th scope="row"><img src="<%=order.image_url%>" style="width: 130px; height: 130; object-fit: cover;"></th>
+                                      <td><%=order.p_name%></td>
+                                      <td><%=order.price%></td>
+                                      <td><%=order.quantity%></td>
+                                      <td><%=order.total%></td>
+                                    </tr>
+                                </tbody>
+                                
+                                
+                                <% } %>
+                               
+            
+                            </table>
+                            
+                        
+            
+                        </div>
+            
+                        
+                    </div>
+                    
+                        
+                </div>
+            </div>
+
+            <div class="container jumbotron">
+                <div class="row"> <h2><u>Pending Orders </u></h2> </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="box-element">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                  </tr>
+                                </thead>
+                                
+                            <% var Final = 0%>
+                            <% for (let pending_order of pending_orders){ %>
+                                <tbody>
+                                    <tr>
+                                      <th scope="row"><img src="<%=pending_order.image_url%>" style="width: 130px; height: 130; object-fit: cover;"></th>
+                                      <td><%=pending_order.p_name%></td>
+                                      <td><%=pending_order.price%></td>
+                                      <td><%=pending_order.quantity%></td>
+                                      <td><%=pending_order.total%></td>
+                                    </tr>
+                                </tbody>
+                                
+                                <% Final = Final + pending_order.total %>
+                                <% } %>
+                                <th scope="row"></th>
+                                      <td><strong>Total</strong></td>
+                                      <td></td>
+                                      <td></td>
+                                      <td><%=Final%></td>
+            
+                            </table>
+                            
+                        
+            
+                        </div>
+            
+                        
+                    </div>
+                    
+                        
+                </div>
+            </div>
             <%- include('./partials/footer.ejs') %>
     </body>
 </html>

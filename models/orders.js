@@ -26,4 +26,18 @@ module.exports = class Order {
   static Update(o_id){
     return db.execute('UPDATE orders SET buy = "y" WHERE o_id = ?', [o_id]);
   }
+
+  static getPreviousOrders(id){
+    return db.execute(
+      'SELECT o_id, p_name, image_url, descript, category, price, quantity, total FROM orders, products where Buy = "y" AND o_complete = "y" AND orders.p_id = products.p_id AND user_id = ?',[id]
+     
+    );
+  }
+
+  static getPendingOrders(id){
+    return db.execute(
+      'SELECT o_id, p_name, image_url, descript, category, price, quantity, total FROM orders, products where Buy = "y" AND o_complete = "n" AND orders.p_id = products.p_id AND user_id = ?',[id]
+     
+    );
+  }
 };
