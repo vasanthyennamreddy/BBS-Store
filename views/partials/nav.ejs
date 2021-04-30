@@ -27,8 +27,16 @@
         <% } %> 
 
       </ul>
-      <form class="form-inline my-2 my-lg-0" style="margin-right: 20px;" >
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="form-inline my-2 my-lg-0" style="margin-right: 20px;" action="/" method="POST" >
+        <label class="mr-sm-2" for="inlineFormCustomSelect">Categories</label>
+        <select class="custom-select mr-sm-2" name = "Category" id="inlineFormCustomSelect">
+          <option selected>Search</option>
+          <option value="Cycles">Cycles</option>
+          <option value="Books">Books</option>
+          <option value="Electricals">Electricals</option>
+          <option value="Sports">Sports</option>
+          <option value="Essentials">Essentials</option>
+        </select>
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search by Tag</button>
       </form>
       <div class="form-inline my-2 my-lg-0">

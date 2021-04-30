@@ -20,6 +20,7 @@
 							<th scope="col">Price</th>
 							<th scope="col">Quantity</th>
 							<th scope="col">Total</th>
+							<th scope="col"></th>
 						  </tr>
 						</thead>
 						
@@ -32,6 +33,16 @@
 							  <td><%=cart.price%></td>
 							  <td><%=cart.quantity%></td>
 							  <td><%=cart.total%></td>
+							  <td>
+								<form action="/cart/del" method="post">
+                                    
+                                      <div class="form-group col-md-4">
+                                        <button type="submit"  data-action="add" class="btn btn-outline-secondary add-btn update-cart">Delete Item</button> 
+                                    <input type="hidden" name="productId" value="<%= cart.p_id %>">
+                                      </div>
+                                    
+                                </form>
+							  </td>
 							</tr>
 						</tbody>
 						

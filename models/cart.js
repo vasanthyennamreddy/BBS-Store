@@ -22,7 +22,7 @@ module.exports = class Order {
 
     static fetchCart(id){
       return db.execute(
-        'SELECT o_id, p_name, image_url, descript, category, price, quantity, total FROM orders, products where Buy = "n" AND orders.p_id = products.p_id AND user_id = ?',[id]
+        'SELECT * FROM cart WHERE user_id = ?',[id]
       );
     }
 
@@ -38,6 +38,10 @@ module.exports = class Order {
       return db.execute(
         'UPDATE orders SET quantity = ?, total = ? WHERE user_id = ? AND p_id = ? AND buy = "n"',[quantity, total, id, p_id]
       );
+    }
+
+    static deleteById(id, user_id) {
+      return db.execute('DELETE FROM orders WHERE p_id = ? AND user_id = ? AND buy="n"' ,[id, user_id]);
     }
 
 

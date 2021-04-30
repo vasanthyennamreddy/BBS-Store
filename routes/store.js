@@ -22,6 +22,7 @@ router.get('',(req,res)=>{
         console.log(date);
 
 
+        
         Product.fetchAll()
         .then(result => {
                 const products = result[0];
@@ -40,6 +41,37 @@ router.get('',(req,res)=>{
         
 
 });
+
+router.post('', (req, res)=>{
+        const category = req.body.Category;
+
+        if(category == "Search"){
+                res.redirect('/')
+        }
+        else{
+        res.redirect('/categ/'+category);
+        }
+})
+
+router.get('/categ/:category', (req, res) =>{
+        const category = req.params.category;
+       
+        Product.findByCategory(category)
+        .then(result => {
+                const products = result[0];
+                res.render('store',{
+                        title:"Home",
+                        products : products,
+                        sess : req.session
+                        });
+        })
+        .catch(err => {
+                console.log(err);
+        })
+
+
+})
+
 
 router.get('/:p_id',(req,res)=>{
         const prodId = req.params.p_id;

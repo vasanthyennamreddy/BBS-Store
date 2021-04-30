@@ -19,13 +19,13 @@ router.get('',(req,res)=>{
         })
         }
         else{
-                res.redirect('login');
+                res.redirect('/login');
         }
         
 
 });
 
-router.post('',(req,res)=>{
+router.post('/add',(req,res)=>{
         const user_id = req.session.userid;
         const p_id = req.body.productId*1;
         var quantity = req.body.quantity*1;
@@ -48,7 +48,7 @@ router.post('',(req,res)=>{
                                                 const cart = new Cart(user_id,p_id,quantity,total,Buy);
                                                         return cart.save()
                                                         .then(result => {
-                                                                res.redirect('cart');
+                                                                res.redirect('/cart');
                                                         }); 
                                         }
                                 })
@@ -80,7 +80,7 @@ router.post('',(req,res)=>{
                                         console.log(total);
                                         Cart.cartUpdate(user_id, p_id, quantity, total)
                                         .then(result => {
-                                                res.redirect('cart');
+                                                res.redirect('/cart');
                                         });
                                 }
                                
@@ -95,6 +95,18 @@ router.post('',(req,res)=>{
        
 
         
+})
+
+router.post('/del',(req,res)=>{
+        if(req.session.isLoggedIn){
+                const user_id = req.session.userid;
+                const p_id = req.body.productId*1;
+
+                Cart.deleteById(p_id, user_id)
+                .then( result =>{
+                        res.redirect('/cart')
+                })
+        }
 })
 
 module.exports = router;

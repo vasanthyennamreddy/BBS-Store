@@ -27,6 +27,15 @@ module.exports = class Product {
     return db.execute('SELECT * FROM products');
   }
 
+  static findByCategory(category) {
+    return db.execute('SELECT * FROM products WHERE category = ?',[category]);
+  }
+
+
+  static fetchByUserId(seller_id) {
+    return db.execute('SELECT * FROM products WHERE seller_id <> ?',[seller_id]);
+  }
+ 
   static getPrice(id){
     return db.execute('SELECT price from products WHERE p_id = ?', [id]);
   }

@@ -29,23 +29,22 @@ module.exports = class Order {
 
   static getPreviousOrders(id){
     return db.execute(
-      'SELECT o_id, p_name, image_url, descript, category, price, quantity, total FROM orders, products where Buy = "y" AND o_complete = "y" AND orders.p_id = products.p_id AND user_id = ?',[id]
+      'SELECT * FROM placedorders WHERE o_complete = "y" AND user_id = ?',[id]
      
     );
   }
 
   static getPendingOrders(id){
     return db.execute(
-      'SELECT o_id, p_name, image_url, descript, category, price, quantity, total FROM orders, products where Buy = "y" AND o_complete = "n" AND orders.p_id = products.p_id AND user_id = ?',[id]
-     
+      'SELECT * FROM placedorders WHERE o_complete = "n" AND user_id = ?',[id]
     );
   }
 
   static getDispatcable(seller_id){
     return db.execute(
-      'SELECT  orders.o_id, p_name, image_url, descript, category, price, quantity, total, h_add, city, pincode FROM orders, products, shipping where Buy = "y" AND o_complete = "n" AND orders.p_id = products.p_id AND orders.o_id = shipping.o_id AND seller_id = ?',[seller_id]
+      'SELECT  * FROM shipping_details where seller_id = ?',[seller_id]
       
-    )
+    );
   }
 
 
