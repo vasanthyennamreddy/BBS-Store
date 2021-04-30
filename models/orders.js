@@ -40,4 +40,16 @@ module.exports = class Order {
      
     );
   }
+
+  static getDispatcable(seller_id){
+    return db.execute(
+      'SELECT  orders.o_id, p_name, image_url, descript, category, price, quantity, total, h_add, city, pincode FROM orders, products, shipping where Buy = "y" AND o_complete = "n" AND orders.p_id = products.p_id AND orders.o_id = shipping.o_id AND seller_id = ?',[seller_id]
+      
+    )
+  }
+
+
+  static dispatchUpdate(o_id){
+    return db.execute('UPDATE orders SET o_complete = "y" WHERE o_id = ? AND o_complete = "n"', [o_id]);
+  }
 };
