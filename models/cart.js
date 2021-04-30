@@ -22,7 +22,7 @@ module.exports = class Order {
 
     static fetchCart(id){
       return db.execute(
-        'SELECT p_name, image_url, descript, category, price, quantity, total FROM orders, products where Buy = "n" AND orders.p_id = products.p_id AND user_id = ?',[id]
+        'SELECT o_id, p_name, image_url, descript, category, price, quantity, total FROM orders, products where Buy = "n" AND orders.p_id = products.p_id AND user_id = ?',[id]
       );
     }
 

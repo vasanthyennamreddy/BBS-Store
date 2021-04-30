@@ -19,7 +19,11 @@ module.exports = class Order {
     );
   }
 
-  findById(userid) {
+  static findById(userid) {
     return db.execute('SELECT * FROM orders WHERE user_id = ?', [userid]);
+  }
+
+  static Update(o_id){
+    return db.execute('UPDATE orders SET buy = "y" WHERE o_id = ?', [o_id]);
   }
 };
