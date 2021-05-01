@@ -20,11 +20,15 @@ module.exports = class Product {
   }
 
   static deleteById(id) {
-    return db.execute('DELETE FROM products WHERE seller_id = auth_user.id AND p_id = ?',[id]);
+    return db.execute('DELETE FROM products WHERE p_id = ?',[id]);
   }
 
   static fetchAll() {
-    return db.execute('SELECT * FROM products');
+    return db.execute('SELECT * FROM products WHERE quant > 0');
+  }
+
+  static Update(quant,p_id){
+    return db.execute('UPDATE products set quant = ? WHERE p_id = ?',[quant, p_id]);
   }
 
   static findByCategory(category) {

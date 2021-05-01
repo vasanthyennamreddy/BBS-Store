@@ -14,11 +14,14 @@ const login = require('./routes/login');
 const addProduct = require('./routes/add-product');
 const logout = require('./routes/logout');
 const profile = require('./routes/profile');
+const admin = require('./routes/admin');
+
 
 app.use("/checkout",checkout);
 app.use("/cart",cart);
 app.use("/register", register);
 app.use("/login", login);
+app.use("/admin", admin);
 app.use("/addproduct", addProduct);
 app.use("/logout",logout);
 app.use("/profile",profile);

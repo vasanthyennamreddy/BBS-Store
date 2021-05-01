@@ -43,10 +43,15 @@ module.exports = class Order {
   static getDispatcable(seller_id){
     return db.execute(
       'SELECT  * FROM shipping_details where seller_id = ?',[seller_id]
-      
     );
   }
 
+  static getAllOrders(){
+    return db.execute(
+      'Select name, username, mail_id, mob_no, p_name, image_url, price, quantity, total, h_add, city, pincode FROM user_details, shipping_details WHERE user_details.user_id = shipping_details.seller_id'
+    )
+    
+  }
 
   static dispatchUpdate(o_id){
     return db.execute('UPDATE orders SET o_complete = "y" WHERE o_id = ? AND o_complete = "n"', [o_id]);
