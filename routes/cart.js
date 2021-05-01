@@ -101,7 +101,7 @@ router.post('/del',(req,res)=>{
         if(req.session.isLoggedIn){
                 const user_id = req.session.userid;
                 const p_id = req.body.productId*1;
-
+                console.log(p_id);
                 Cart.deleteById(p_id, user_id)
                 .then( result =>{
                         res.redirect('/cart')

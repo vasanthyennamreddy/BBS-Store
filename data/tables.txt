@@ -57,6 +57,7 @@ VIEW `cart` AS
     SELECT 
         `orders`.`user_id` AS `user_id`,
         `orders`.`o_id` AS `o_id`,
+         `products`.`p_id` AS `p_id`,
         `products`.`p_name` AS `p_name`,
         `products`.`image_url` AS `image_url`,
         `products`.`descript` AS `descript`,
