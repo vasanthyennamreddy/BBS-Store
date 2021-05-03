@@ -28,7 +28,7 @@ module.exports = class Product {
   }
 
   static Update(quant,p_id){
-    return db.execute('UPDATE products set quant = ? WHERE p_id = ?',[quant, p_id]);
+    return db.execute('UPDATE products set quant = quant - ? WHERE p_id = ?',[quant, p_id]);
   }
 
   static findByCategory(category) {

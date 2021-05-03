@@ -80,8 +80,11 @@ router.post('',(req,res)=>{
                         const Carts = result[0];
                         var len = Carts.length;
                         var i;
+                        
+                                
+
                                 for (i = 0; i < len; i++) {
-                                         console.log(result[0][i].o_id);
+                                         Product.Update(result[0][i].quantity, result[0][i].p_id);
                                          Order.Update(result[0][i].o_id);
                                          const shipping = new Address(user_id, h_add, city, state, country, pincode, date, result[0][i].o_id);
                                           shipping.save();
