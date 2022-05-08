@@ -1,0 +1,11 @@
+39,
+"Hykes Gloves",
+https://images.unsplash.com/photo-1617122951886-6afc68a99e17?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGdsb3ZlcyUyMGhpa2luZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60,
+"SizeMedium. ColourBlack. SportWeightlifting
+, Cycling,
+ Camping and Hiking,
+  Powerlifting. MaterialSynthetic. BrandHykes",
+  Sports,
+  6,
+  800,
+  1

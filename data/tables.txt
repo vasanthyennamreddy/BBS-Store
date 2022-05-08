@@ -17,7 +17,7 @@ p_name varchar(50)
 image_url varchar(1000) 
 descript varchar(1000) 
 category varchar(100) 
-seller_id varchar(30) 
+seller_id int 
 price double 
 quant int
 
